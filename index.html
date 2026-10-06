@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F1115">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="تطبيق عربي لإدارة الأموال الشخصية على جهازك: معاملات، مدخرات، أهداف، ديون وميزانية. يعمل دون إنترنت وبياناتك محفوظة محليًا.">
+<title>MONEY-FLOW — إدارة الأموال الشخصية</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C6A15B'/%3E%3Cg fill='none' stroke='%230F1115' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='8' width='20' height='16' rx='3'/%3E%3Cpath d='M6 13h20'/%3E%3C/g%3E%3Ccircle cx='11' cy='19' r='1.2' fill='%230F1115'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta property="og:title" content="MONEY-FLOW — إدارة الأموال الشخصية">
+<meta property="og:description" content="إدارة الأموال الشخصية على جهازك. يعمل دون إنترنت. بياناتك محفوظة محليًا.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#0F1115;--elevated:#14171C;--card:#171A20;--soft:#1D2229;--hover:#22272F;
+  --border:#292D34;--border-strong:#363B43;--fg:#F1EEE7;--dim:#CFCAC0;
+  --muted:#A8A49B;--muted-dim:#77736B;--income:#4F9D70;--expense:#C96B5B;
+  --warning:#C5964A;--accent:#C6A15B;--ink:#0F1115;--gold-soft:#D6B87E;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Tajawal,Segoe UI,Tahoma,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+.skip{position:absolute;right:-999px;top:8px}
+.skip:focus{right:12px;z-index:80;background:var(--accent);color:var(--ink);padding:8px 14px;border-radius:12px;font-weight:800}
+header.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;background:transparent;transition:.2s}
+header.nav.solid{background:rgba(15,17,21,.92);border-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.18em;font-size:13px}
+.mark{width:32px;height:32px;border-radius:10px;background:var(--accent);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+.mark svg{width:18px;height:18px}
+.links{display:flex;gap:28px}
+.links a{font-size:13.5px;font-weight:700;color:var(--muted)}
+.links a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:16px;font-weight:800;font-size:14px;background:var(--accent);color:var(--ink);border:0;transition:transform .15s var(--ease),background .15s}
+.btn:hover{background:var(--gold-soft)}
+.btn:active{transform:scale(.96)}
+.btn.lg{min-height:56px;padding:0 28px;font-size:15px}
+.btn.ghost{background:transparent;color:var(--dim);border:1px solid var(--border-strong)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--fg);background:transparent}
+.menu-btn{display:none;width:44px;height:44px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--fg)}
+.mobile-nav{display:none;padding:8px 0 16px}
+.mobile-nav.open{display:flex;flex-direction:column;gap:4px}
+.mobile-nav a{padding:12px;border-radius:12px;font-weight:700}
+.hero{display:grid;gap:48px;padding:112px 0 64px;background:radial-gradient(ellipse 70% 50% at 80% 0%,rgba(198,161,91,.07),transparent 55%)}
+.kicker{color:var(--accent);font-weight:700;font-size:13px}
+h1{font-size:clamp(34px,5vw,52px);line-height:1.15;margin:16px 0 0;max-width:16ch}
+.lead{font-size:17px;line-height:1.8;color:var(--dim);max-width:42ch;margin-top:20px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.note{margin-top:18px;font-size:12.5px;color:var(--muted-dim);line-height:1.7}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--border)}
+.trust div{padding:24px 16px;border-inline-end:1px solid var(--border)}
+.trust div:last-child{border:0}
+.trust b{display:block;font-size:14px}
+.trust span{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.6}
+section.block{padding:88px 0}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:12px 0 0}
+.why-grid{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center;margin-top:48px}
+.why-line{border-right:2px solid var(--accent);padding-right:20px;margin-bottom:28px}
+.why-line h3{margin:0 0 8px;font-size:18px}
+.why-line p{margin:0;color:var(--dim);line-height:1.7;font-size:15px}
+.elev{background:rgba(20,23,28,.4);border-block:1px solid var(--border)}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 32px;margin-top:56px}
+.fico{width:44px;height:44px;border-radius:13px;background:rgba(198,161,91,.12);color:var(--accent);display:grid;place-items:center}
+.feats h3{margin:16px 0 8px;font-size:16px}
+.feats p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;align-items:end}
+figcaption{text-align:center;margin-top:18px;font-size:13px;font-weight:700;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:56px}
+.num{font-size:28px;font-weight:800;color:var(--accent)}
+.steps h3{margin:16px 0 8px;font-size:17px}
+.steps p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.dl{background:var(--card);border:1px solid var(--border-strong);border-radius:28px;padding:56px 24px;text-align:center}
+.dl h2{max-width:18ch;margin-inline:auto}
+.dl p{max-width:520px;margin:16px auto 0;color:var(--dim);line-height:1.8}
+.priv-tease{display:flex;justify-content:space-between;gap:24px;align-items:end;padding-top:56px;border-top:1px solid var(--border)}
+.ghost-link{display:inline-flex;min-height:48px;align-items:center;padding:0 20px;border:1px solid var(--border-strong);border-radius:14px;font-weight:800;font-size:14px}
+.ghost-link:hover{border-color:var(--accent)}
+footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
+.foot{display:flex;justify-content:space-between;gap:32px;padding-bottom:32px}
+.foot p{color:var(--muted);font-size:13px;line-height:1.7;max-width:36ch}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:13px;font-weight:700;color:var(--muted)}
+.foot-links a:hover{color:var(--accent)}
+.foot-links .off{color:var(--muted-dim)}
+.copy{border-top:1px solid var(--border);padding:18px 0;display:flex;justify-content:space-between;color:var(--muted-dim);font-size:12px}
+.phone{width:248px;margin:0 auto;background:var(--bg);border:1px solid var(--border-strong);border-radius:36px;overflow:hidden;box-shadow:0 0 0 1px rgba(198,161,91,.16),0 28px 64px -28px rgba(0,0,0,.75);position:relative}
+.phone.lg{width:300px}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#0a0c10;border-radius:99px;z-index:2}
+.screen{padding:36px 14px 72px;min-height:520px}
+.bnav{position:absolute;bottom:12px;left:12px;right:12px;display:flex;background:rgba(23,26,32,.92);border:1px solid var(--border-strong);border-radius:24px;padding:6px}
+.bnav span{flex:1;text-align:center;font-size:9px;font-weight:700;color:var(--muted);padding:8px 0}
+.bnav span.on{color:var(--fg)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px}
+.muted{color:var(--muted)}
+.income{color:var(--income)}
+.expense{color:var(--expense)}
+.gold{color:var(--gold-soft)}
+#privacy-page{display:none}
+#privacy-page .prose{max-width:720px;margin:56px auto;padding:0 16px 80px}
+#privacy-page h1{max-width:none;font-size:34px}
+#privacy-page h3{margin:36px 0 12px;font-size:18px}
+#privacy-page p,#privacy-page li{color:var(--dim);line-height:1.9;font-size:15px}
+#privacy-page ul{padding-right:20px}
+.warn{color:var(--muted)!important}
+@media (max-width:960px){
+  .trust{grid-template-columns:1fr 1fr}
+  .feats,.steps,.phones{grid-template-columns:1fr 1fr}
+  .phones figure:last-child{display:none}
+  .why-grid{grid-template-columns:1fr;justify-items:center}
+}
+@media (max-width:720px){
+  .links{display:none}
+  .menu-btn{display:grid;place-items:center}
+  .hero{padding:96px 0 48px}
+  .feats,.steps,.phones,.trust{grid-template-columns:1fr}
+  .phones figure:nth-child(2){display:none}
+  .priv-tease,.foot,.copy{flex-direction:column;align-items:flex-start}
+  .cta-row .btn{width:100%}
+  .phone.lg{width:280px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطي إلى المحتوى</a>
+<header class="nav" id="topnav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" data-home>
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/><circle cx="7" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span>
+      MONEY-FLOW
+    </a>
+    <nav class="links" aria-label="التنقل الرئيسي">
+      <a href="#features">الميزات</a>
+      <a href="#showcase">التطبيق</a>
+      <a href="#how">طريقة الاستخدام</a>
+      <a href="#privacy">الخصوصية</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="btn" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg><span class="dl-label">تحميل MONEY-FLOW</span></a>
+      <button class="menu-btn" type="button" aria-label="القائمة" id="menuBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="wrap mobile-nav" id="mobileNav">
+    <a href="#features">الميزات</a>
+    <a href="#showcase">التطبيق</a>
+    <a href="#how">طريقة الاستخدام</a>
+    <a href="#privacy">الخصوصية</a>
+  </div>
+</header>
+
+<div id="home-page">
+<main id="main">
+  <section class="wrap hero" id="top">
+    <div>
+      <div class="kicker">تطبيق إدارة الأموال الشخصية</div>
+      <h1>أموالك على جهازك. ليس على خادم أحد.</h1>
+      <p class="lead">MONEY-FLOW يسجّل إيراداتك ومصاريفك ومدخراتك وديونك وميزانيتك محليًا بالليرة السورية — ويعمل دون إنترنت.</p>
+      <div class="cta-row">
+        <a class="btn lg" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>تحميل MONEY-FLOW</a>
+        <a class="btn lg ghost" href="#features">استكشف الميزات</a>
+      </div>
+      <p class="note">بياناتك تبقى على جهازك. لا حساب سحابي، ولا إرسال تلقائي لأي خدمة ذكاء اصطناعي.</p>
+    </div>
+    <aside aria-hidden="true">
+      <div class="phone lg">
+        <div class="notch"></div>
+        <div class="screen">
+          <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:12px">
+            <span style="width:32px;height:32px;border-radius:11px;background:var(--accent);display:grid;place-items:center;color:var(--ink);font-weight:800">+</span>
+          </div>
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted)"><span>الرصيد المتاح</span><span class="income">↑ ١٢٪</span></div>
+            <div style="font-size:26px;font-weight:800;margin:8px 0 12px">٢٬٤٥٠٬٠٠٠ <span style="font-size:12px;color:var(--muted)">ل.س</span></div>
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:8px"><div style="font-size:10px;color:var(--muted)">الإيرادات</div><b class="income" style="font-size:13px">١٬٢٠٠٬٠٠٠</b></div>
+              <div style="flex:1;background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:8px"><div style="font-size:10px;color:var(--muted)">المصاريف</div><b class="expense" style="font-size:13px">٦٨٠٬٠٠٠</b></div>
+            </div>
+          </div>
+          <div style="margin-top:14px;font-size:12px;font-weight:800">أحدث المعاملات</div>
+          <div class="card" style="margin-top:8px;display:flex;justify-content:space-between;align-items:center;padding:10px 12px"><span>راتب</span><b class="income">+١٬٢٠٠٬٠٠٠</b></div>
+          <div class="card" style="margin-top:8px;display:flex;justify-content:space-between;align-items:center;padding:10px 12px"><span>طعام</span><b class="expense">−٤٥٬٠٠٠</b></div>
+        </div>
+        <div class="bnav"><span class="on">الرئيسية</span><span>الأهداف</span><span>المدخرات</span><span>الميزانية</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="trust wrap" style="width:100%;max-width:none;border-inline:0">
+    <div class="wrap" style="display:grid;grid-template-columns:repeat(4,1fr);padding:0;width:min(1120px,100%)">
+      <div><b>محلي بالكامل</b><span>التخزين على جهازك</span></div>
+      <div><b>بدون إنترنت</b><span>التطبيق الأساسي يعمل دون شبكة</span></div>
+      <div><b>الليرة السورية</b><span>العملة المعتمدة داخل التطبيق</span></div>
+      <div><b>الإصدار 2.0</b><span>كما يظهر في إعدادات التطبيق</span></div>
+    </div>
+  </div>
+
+  <section class="wrap block">
+    <div class="kicker">لماذا MONEY-FLOW</div>
+    <h2>دفتر مالي كامل في جيبك — دون أن تُشارك أرقامك.</h2>
+    <div class="why-grid">
+      <div>
+        <div class="why-line"><h3>رصيد متاح حقيقي</h3><p>الإيرادات ناقص المصاريف، مع فصل تحويلات المدخرات حتى لا تُحتسب دخلًا أو مصروفًا مرتين.</p></div>
+        <div class="why-line"><h3>مدخرات الأهداف منفصلة عن العامة</h3><p>تعرف كم خصّصت لهدف معيّن وكم بقي مالًا حرًا يمكنك سحبه أو إعادة توجيهه.</p></div>
+        <div class="why-line"><h3>تنبيهات مبنية على بياناتك فقط</h3><p>اقتراب الميزانية، أو فئة أعلى من معدّلك، أو هدف يتأخر عن خطته — دون تخمين.</p></div>
+      </div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div style="font-weight:800;margin-bottom:12px">مدخراتك</div>
+          <div class="card">
+            <div class="muted" style="font-size:11px">رصيد المدخرات</div>
+            <div style="font-size:22px;font-weight:800;margin:6px 0 12px">٨٥٠٬٠٠٠ <span class="muted" style="font-size:11px">ل.س</span></div>
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;background:var(--soft);border-radius:12px;padding:10px"><div class="muted" style="font-size:10px">مدخرات الأهداف</div><b class="gold">٥٢٠٬٠٠٠</b></div>
+              <div style="flex:1;background:var(--soft);border-radius:12px;padding:10px"><div class="muted" style="font-size:10px">مدخرات عامة</div><b class="income">٣٣٠٬٠٠٠</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="bnav"><span>الرئيسية</span><span>الأهداف</span><span class="on">المدخرات</span><span>الميزانية</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="elev block" id="features">
+    <div class="wrap">
+      <div class="kicker">الميزات الفعلية</div>
+      <h2>كل ما تحتاجه لإدارة الشهر — دون أدوات وهمية.</h2>
+      <p class="lead">هذه الميزات موجودة في التطبيق نفسه. العملة داخل التطبيق هي الليرة السورية.</p>
+      <div class="feats">
+        <article><div class="fico">☰</div><h3>المعاملات</h3><p>إيراد ومصروف بتصنيفات واضحة: راتب، فواتير، طعام، مواصلات، صحة وغيرها — مع سجل كامل.</p></article>
+        <article><div class="fico">◉</div><h3>المدخرات</h3><p>إيداع وسحب يدوي، هدف ادخار شهري، وخطة بتاريخ مستهدف. مدخرات الأهداف منفصلة.</p></article>
+        <article><div class="fico">◎</div><h3>الأهداف المالية</h3><p>هدف بمبلغ وموعد وصورة اختيارية، مع حلقة إنجاز ووتيرة: على المسار أو متأخر.</p></article>
+        <article><div class="fico">⇄</div><h3>الديون والقروض</h3><p>ما لك عند الآخرين وما عليك لهم، مع تتبع المدفوع والمتبقي وتاريخ الاستحقاق.</p></article>
+        <article><div class="fico">◐</div><h3>الميزانية والتحليل</h3><p>ميزانية شهر وحدود للفئات، حد يومي للصرف، وتحليل لفترات حتى آخر ١٢ شهرًا.</p></article>
+        <article><div class="fico">✦</div><h3>MoneyFlow AI</h3><p>يجهّز نصًا من بياناتك لتنسخه إلى أي أداة ذكاء اصطناعي. لا يُرسل شيء تلقائيًا.</p></article>
+        <article><div class="fico">$</div><h3>الأسعار والتحويل</h3><p>أسعار تحويل عالمية وذهب، ومحوّل بين الليرة والدولار واليورو والليرة التركية والذهب.</p></article>
+        <article><div class="fico">▣</div><h3>قفل PIN ونسخ احتياطي</h3><p>رمز PIN اختياري، وتصدير/استيراد JSON. التصدير لا يتضمّن كلمة المرور ولا PIN.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="showcase">
+    <div class="kicker">داخل التطبيق</div>
+    <h2>الشاشات التي تستخدمها كل يوم.</h2>
+    <div class="phones">
+      <figure>
+        <div class="phone"><div class="notch"></div><div class="screen"><div class="card"><div class="muted" style="font-size:11px">الرصيد المتاح</div><div style="font-size:22px;font-weight:800">٢٬٤٥٠٬٠٠٠</div></div></div><div class="bnav"><span class="on">الرئيسية</span><span>الأهداف</span><span>المدخرات</span><span>الميزانية</span></div></div>
+        <figcaption>الرئيسية — الرصيد المتاح ونمو الشهر</figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="notch"></div><div class="screen"><div class="card"><div style="display:flex;justify-content:space-between"><b>ميزانية الشهر</b><span class="muted">اقتراب</span></div><div class="muted" style="margin:8px 0">٦٨٠٬٠٠٠ من ٨٥٠٬٠٠٠</div><div style="height:8px;background:var(--soft);border-radius:99px;overflow:hidden"><div style="width:80%;height:100%;background:var(--warning)"></div></div></div></div><div class="bnav"><span>الرئيسية</span><span>الأهداف</span><span>المدخرات</span><span class="on">الميزانية</span></div></div>
+        <figcaption>الميزانية — حد الشهر والفئات والتنبيهات</figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="notch"></div><div class="screen"><div style="font-weight:800">أهدافي المالية</div><div class="card" style="margin-top:12px;text-align:center"><div class="gold" style="font-size:28px;font-weight:800">٦٤٪</div><div>سفر</div><div class="muted" style="font-size:11px">٣٢٠٬٠٠٠ / ٥٠٠٬٠٠٠</div></div></div><div class="bnav"><span>الرئيسية</span><span class="on">الأهداف</span><span>المدخرات</span><span>الميزانية</span></div></div>
+        <figcaption>الأهداف — نسبة الإنجاز والموعد المستهدف</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap block" id="how" style="border-top:1px solid var(--border)">
+    <div class="kicker">طريقة الاستخدام</div>
+    <h2>أربع خطوات، دون تعقيد.</h2>
+    <div class="steps">
+      <div><div class="num">١</div><h3>حمّل وثبّت</h3><p>نزّل MONEY-FLOW على جهازك وافتحه. لا حاجة لخادم أو بريد تفعيل خارجي.</p></div>
+      <div><div class="num">٢</div><h3>أنشئ حسابًا محليًا</h3><p>الاسم والبريد وكلمة المرور تُحفظ على الجهاز. يمكنك تفعيل رمز PIN للقفل.</p></div>
+      <div><div class="num">٣</div><h3>أضف حركاتك</h3><p>إيراد أو مصروف، ثم مدخرات وأهداف وديون وميزانية الشهر متى احتجت.</p></div>
+      <div><div class="num">٤</div><h3>تابع واتخذ قرارًا</h3><p>اقرأ التحليل والتنبيهات، أو جهّز نص MoneyFlow AI إن رغبت باستشارة خارجية.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="download">
+    <div class="dl">
+      <span class="mark" style="width:56px;height:56px;border-radius:16px;margin:0 auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span>
+      <h2>حمّل MONEY-FLOW وابدأ من جهازك.</h2>
+      <p>ملف التطبيق يُنشر باسم MONEY-FLOW.apk عبر GitHub Releases. الزر أدناه يشير إلى آخر إصدار عندما يُضبط الرابط.</p>
+      <div style="margin-top:28px"><a class="btn lg" data-download href="#download">تحميل MONEY-FLOW</a></div>
+      <p class="note" id="dlHint"></p>
+    </div>
+  </section>
+
+  <section class="wrap block" id="privacy">
+    <div class="priv-tease">
+      <div>
+        <div class="kicker">سياسة الخصوصية</div>
+        <h2>بياناتك تبقى حيث أدخلتها: على الجهاز.</h2>
+        <p class="lead">لا نختلق وعودًا قانونية. السياسة مكتوبة مما يظهر في التطبيق: تخزين محلي، حساب على الجهاز، وأسعار عامة اختيارية عبر الإنترنت دون إرسال معاملاتك.</p>
+      </div>
+      <a class="ghost-link" href="#privacy-full" id="openPrivacy">اقرأ سياسة الخصوصية</a>
+    </div>
+  </section>
+</main>
+</div>
+
+<div id="privacy-page">
+  <div class="prose">
+    <div class="kicker">MONEY-FLOW</div>
+    <h1>سياسة الخصوصية</h1>
+    <p>كُتبت هذه السياسة من سلوك التطبيق الفعلي كما يظهر في النسخة المفحوصة. النقاط غير المؤكدة مُعلَّمة بوضوح.</p>
+    <h3>خلاصة واضحة</h3>
+    <p>MONEY-FLOW تطبيق لإدارة الأموال الشخصية يعمل على جهازك. المعاملات والأهداف والديون والمدخرات والميزانية تُحفظ محليًا على الجهاز، وليس على خادم تابع لنا. ميزة الأسعار والتحويل هي الاستثناء: تحتاج اتصالًا لجلب أسعار عامة، ولا تُرسل معها بياناتك المالية.</p>
+    <h3>ما البيانات التي تُحفظ؟</h3>
+    <p>يحفظ التطبيق ما تُدخله: المعاملات، الأهداف، الديون، المدخرات، الميزانيات، الحد اليومي، الملف الشخصي، وحساب محلي اختياري (تجزئة كلمة المرور وPIN عبر PBKDF2 على الجهاز — وليس النص الصريح).</p>
+    <h3>أين تُخزَّن وهل تُشارك؟</h3>
+    <p>التخزين محلي. التصدير JSON لا يتضمن تجزئة كلمة المرور ولا PIN. التطبيق لا يرسل معاملاتك إلى خادم. MoneyFlow AI يجهّز نصًا على الجهاز وأنت من تنسخه. أسعار الصرف تُجلب من مصادر عامة دون إرسال بيانات مالية.</p>
+    <p class="warn">[يجب على المطوّر تأكيد هذه النقطة] صلاحيات أندرويد في ملف APK وبيان أي إعلانات أو تحليلات مستقبلية.</p>
+    <p><a href="#top" data-home class="ghost-link" style="margin-top:24px">العودة إلى الموقع</a></p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span>MONEY-FLOW</div>
+        <p>إدارة الأموال الشخصية على جهازك. يعمل دون إنترنت. بياناتك محفوظة محليًا.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#download">تحميل</a>
+        <a data-ig class="off">Instagram</a>
+        <a data-tg class="off">Telegram</a>
+        <a href="#privacy-full" id="footerPrivacy">سياسة الخصوصية</a>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="year"></span> MONEY-FLOW</span><span>الإصدار 2.0 · الليرة السورية (ل.س)</span></div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   🔗 SITE LINKS
+   تم إصلاح الرابط وضبط سطر الجافاسكريبت المكسور:
+   ========================================================= */
+const SITE_LINKS = {
+  download: "https://github.com/karamorabi406-bit/MONEY-FLOW-/releases/latest/download/MONEY-FLOW.apk",
+  instagram: "https://www.instagram.com/money_flow__official",
+  telegram: "https://t.me/monyflowofflclal"
+};
+
+function isConfiguredUrl(url){
+  return /^https?:\/\//i.test(url || "") && !/YOUR-APP-DOWNLOAD-LINK-HERE|YOUR-INSTAGRAM-LINK-HERE|YOUR-TELEGRAM-GROUP-LINK-HERE|_HERE|USERNAME/i.test(url);
+}
+
+function wireDownloads(){
+  const ready = isConfiguredUrl(SITE_LINKS.download);
+  document.querySelectorAll("[data-download]").forEach(function(a){
+    a.href = ready ? SITE_LINKS.download : "#download";
+    if(ready){
+      a.setAttribute("target","_blank");
+      a.setAttribute("rel","noopener noreferrer");
+    }
+  });
+  const hint = document.getElementById("dlHint");
+  if(hint) hint.textContent = ready ? "" : "رابط التحميل لم يُضبط بعد. سيُفعَّل عند نشر الإصدار.";
+}
+
+function wireSocial(){
+  [["data-ig", SITE_LINKS.instagram],["data-tg", SITE_LINKS.telegram]].forEach(function(pair){
+    document.querySelectorAll("["+pair[0]+"]").forEach(function(a){
+      if(isConfiguredUrl(pair[1])){
+        a.href = pair[1]; a.target = "_blank"; a.rel = "noopener noreferrer"; a.classList.remove("off");
+      } else {
+        a.removeAttribute("href");
+      }
+    });
+  });
+}
+
+function showPrivacy(on){
+  document.getElementById("home-page").style.display = on ? "none" : "block";
+  document.getElementById("privacy-page").style.display = on ? "block" : "none";
+  window.scrollTo(0,0);
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+wireDownloads();
+wireSocial();
+document.getElementById("menuBtn").addEventListener("click", function(){
+  document.getElementById("mobileNav").classList.toggle("open");
+});
+document.querySelectorAll("[data-home]").forEach(function(a){
+  a.addEventListener("click", function(e){ e.preventDefault(); showPrivacy(false); });
+});
+document.getElementById("openPrivacy").addEventListener("click", function(e){ e.preventDefault(); showPrivacy(true); });
+document.getElementById("footerPrivacy").addEventListener("click", function(e){ e.preventDefault(); showPrivacy(true); });
+window.addEventListener("scroll", function(){
+  document.getElementById("topnav").classList.toggle("solid", window.scrollY > 12);
+}, {passive:true});
+</script>
+</body>
+</html>
