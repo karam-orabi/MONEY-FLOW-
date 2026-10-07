@@ -25,16 +25,16 @@ MONEY-FLOW هو تطبيق لإدارة الأموال الشخصية يساعد
 
 <div align="center">
 
-<img src="screenshots/screenshot-2.png" width="15%">
-<img src="screenshots/screenshot-3.png" width="15%">
-<img src="screenshots/screenshot-4.png" width="15%">
-<img src="screenshots/screenshot-5.png" width="15%">
+<img src="screenshots:/screenshot-2.png" width="15%">
+<img src="screenshots:/screenshot-3.png" width="15%">
+<img src="screenshots:/screenshot-4.png" width="15%">
+<img src="screenshots:/screenshot-5.png" width="15%">
 
 <br>
 
-<img src="screenshots/screenshot-6.png" width="15%">
-<img src="screenshots/screenshot-7.png" width="15%">
-<img src="screenshots/screenshot-8.png" width="15%">
+<img src="screenshots:/screenshot-6.png" width="15%">
+<img src="screenshots:/screenshot-7.png" width="15%">
+<img src="screenshots:/screenshot-8.png" width="15%">
 
 </div>
 
