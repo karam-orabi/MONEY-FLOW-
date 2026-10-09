@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to MONEY-FLOW are documented here.
+All notable changes to WAZEN are documented here.
 
 ---
 
@@ -8,13 +8,16 @@ All notable changes to MONEY-FLOW are documented here.
 
 ### Initial Public Release
 
-- Initial public release of MONEY-FLOW.
+- Initial public release of WAZEN.
 - Android APK published through GitHub Releases.
 - Official project website published.
-- Initial version of the MONEY-FLOW application made publicly available.
+- Initial version of the WAZEN application made publicly available.
 
 ---
 
 ## Release Policy
 
 Future releases will document major changes, improvements, fixes, and new features.
+##{2.0.0} - 2026-10-9
+##Key additions
+1-The currency of all {Arab} countries has been added
