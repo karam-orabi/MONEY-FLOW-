@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0F1115">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="تطبيق عربي لإدارة الأموال الشخصية على جهازك: معاملات، مدخرات، أهداف، ديون وميزانية. يعمل دون إنترنت وبياناتك محفوظة محليًا.">
-<title>MONEY-FLOW — إدارة الأموال الشخصية</title>
+<meta name="description" content="وازن — تطبيق عربي لإدارة الأموال الشخصية على جهازك: معاملات، مدخرات، أهداف، ديون وميزانية. يعمل دون إنترنت وبياناتك محفوظة محليًا. يدعم العملات العربية والدولار واليورو.">
+<title>وازن — إدارة الأموال الشخصية</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C6A15B'/%3E%3Cg fill='none' stroke='%230F1115' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='6' y='8' width='20' height='16' rx='3'/%3E%3Cpath d='M6 13h20'/%3E%3C/g%3E%3Ccircle cx='11' cy='19' r='1.2' fill='%230F1115'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<meta property="og:title" content="MONEY-FLOW — إدارة الأموال الشخصية">
-<meta property="og:description" content="إدارة الأموال الشخصية على جهازك. يعمل دون إنترنت. بياناتك محفوظة محليًا.">
+<meta property="og:title" content="وازن — إدارة الأموال الشخصية">
+<meta property="og:description" content="إدارة الأموال الشخصية على جهازك. يعمل دون إنترنت. بياناتك محفوظة محليًا. يدعم العملات العربية والدولار واليورو.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <style>
@@ -36,7 +36,7 @@ img{max-width:100%}
 header.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;background:transparent;transition:.2s}
 header.nav.solid{background:rgba(15,17,21,.92);border-color:var(--border)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.18em;font-size:13px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em;font-size:15px}
 .mark{width:32px;height:32px;border-radius:10px;background:var(--accent);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
 .mark svg{width:18px;height:18px}
 .links{display:flex;gap:28px}
@@ -140,7 +140,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
   <div class="wrap nav-inner">
     <a class="brand" href="#top" data-home>
       <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/><circle cx="7" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span>
-      MONEY-FLOW
+      وازن
     </a>
     <nav class="links" aria-label="التنقل الرئيسي">
       <a href="#features">الميزات</a>
@@ -149,7 +149,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
       <a href="#privacy">الخصوصية</a>
     </nav>
     <div style="display:flex;gap:8px;align-items:center">
-      <a class="btn" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg><span class="dl-label">تحميل MONEY-FLOW</span></a>
+      <a class="btn" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg><span class="dl-label">تحميل وازن</span></a>
       <button class="menu-btn" type="button" aria-label="القائمة" id="menuBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
@@ -167,9 +167,9 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
     <div>
       <div class="kicker">تطبيق إدارة الأموال الشخصية</div>
       <h1>أموالك على جهازك. ليس على خادم أحد.</h1>
-      <p class="lead">MONEY-FLOW يسجّل إيراداتك ومصاريفك ومدخراتك وديونك وميزانيتك محليًا بالليرة السورية — ويعمل دون إنترنت.</p>
+      <p class="lead">وازن يسجّل إيراداتك ومصاريفك ومدخراتك وديونك وميزانيتك محليًا — بعملتك التي تختارها — ويعمل دون إنترنت.</p>
       <div class="cta-row">
-        <a class="btn lg" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>تحميل MONEY-FLOW</a>
+        <a class="btn lg" data-download href="#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>تحميل وازن</a>
         <a class="btn lg ghost" href="#features">استكشف الميزات</a>
       </div>
       <p class="note">بياناتك تبقى على جهازك. لا حساب سحابي، ولا إرسال تلقائي لأي خدمة ذكاء اصطناعي.</p>
@@ -202,13 +202,13 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
     <div class="wrap" style="display:grid;grid-template-columns:repeat(4,1fr);padding:0;width:min(1120px,100%)">
       <div><b>محلي بالكامل</b><span>التخزين على جهازك</span></div>
       <div><b>بدون إنترنت</b><span>التطبيق الأساسي يعمل دون شبكة</span></div>
-      <div><b>الليرة السورية</b><span>العملة المعتمدة داخل التطبيق</span></div>
-      <div><b>الإصدار 2.0</b><span>كما يظهر في إعدادات التطبيق</span></div>
+      <div><b>عملات متعددة</b><span>العربية + الدولار واليورو</span></div>
+      <div><b>خصوصية كاملة</b><span>لا خوادم ولا حساب سحابي</span></div>
     </div>
   </div>
 
   <section class="wrap block">
-    <div class="kicker">لماذا MONEY-FLOW</div>
+    <div class="kicker">لماذا وازن</div>
     <h2>دفتر مالي كامل في جيبك — دون أن تُشارك أرقامك.</h2>
     <div class="why-grid">
       <div>
@@ -238,15 +238,15 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
     <div class="wrap">
       <div class="kicker">الميزات الفعلية</div>
       <h2>كل ما تحتاجه لإدارة الشهر — دون أدوات وهمية.</h2>
-      <p class="lead">هذه الميزات موجودة في التطبيق نفسه. العملة داخل التطبيق هي الليرة السورية.</p>
+      <p class="lead">هذه الميزات موجودة في التطبيق نفسه. اختر عملتك الأساسية من العملات العربية أو الدولار أو اليورو.</p>
       <div class="feats">
         <article><div class="fico">☰</div><h3>المعاملات</h3><p>إيراد ومصروف بتصنيفات واضحة: راتب، فواتير، طعام، مواصلات، صحة وغيرها — مع سجل كامل.</p></article>
         <article><div class="fico">◉</div><h3>المدخرات</h3><p>إيداع وسحب يدوي، هدف ادخار شهري، وخطة بتاريخ مستهدف. مدخرات الأهداف منفصلة.</p></article>
         <article><div class="fico">◎</div><h3>الأهداف المالية</h3><p>هدف بمبلغ وموعد وصورة اختيارية، مع حلقة إنجاز ووتيرة: على المسار أو متأخر.</p></article>
         <article><div class="fico">⇄</div><h3>الديون والقروض</h3><p>ما لك عند الآخرين وما عليك لهم، مع تتبع المدفوع والمتبقي وتاريخ الاستحقاق.</p></article>
         <article><div class="fico">◐</div><h3>الميزانية والتحليل</h3><p>ميزانية شهر وحدود للفئات، حد يومي للصرف، وتحليل لفترات حتى آخر ١٢ شهرًا.</p></article>
-        <article><div class="fico">✦</div><h3>MoneyFlow AI</h3><p>يجهّز نصًا من بياناتك لتنسخه إلى أي أداة ذكاء اصطناعي. لا يُرسل شيء تلقائيًا.</p></article>
-        <article><div class="fico">$</div><h3>الأسعار والتحويل</h3><p>أسعار تحويل عالمية وذهب، ومحوّل بين الليرة والدولار واليورو والليرة التركية والذهب.</p></article>
+        <article><div class="fico">✦</div><h3>Wazen AI</h3><p>يجهّز نصًا من بياناتك لتنسخه إلى أي أداة ذكاء اصطناعي. لا يُرسل شيء تلقائيًا.</p></article>
+        <article><div class="fico">$</div><h3>العملات المتعددة</h3><p>اختر عملتك الأساسية من العملات العربية كاملة، مع الدولار الأمريكي واليورو — الرمز المعروض فقط دون تحويل تلقائي.</p></article>
         <article><div class="fico">▣</div><h3>قفل PIN ونسخ احتياطي</h3><p>رمز PIN اختياري، وتصدير/استيراد JSON. التصدير لا يتضمّن كلمة المرور ولا PIN.</p></article>
       </div>
     </div>
@@ -275,19 +275,19 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
     <div class="kicker">طريقة الاستخدام</div>
     <h2>أربع خطوات، دون تعقيد.</h2>
     <div class="steps">
-      <div><div class="num">١</div><h3>حمّل وثبّت</h3><p>نزّل MONEY-FLOW على جهازك وافتحه. لا حاجة لخادم أو بريد تفعيل خارجي.</p></div>
+      <div><div class="num">١</div><h3>حمّل وثبّت</h3><p>نزّل وازن على جهازك وافتحه. لا حاجة لخادم أو بريد تفعيل خارجي.</p></div>
       <div><div class="num">٢</div><h3>أنشئ حسابًا محليًا</h3><p>الاسم والبريد وكلمة المرور تُحفظ على الجهاز. يمكنك تفعيل رمز PIN للقفل.</p></div>
       <div><div class="num">٣</div><h3>أضف حركاتك</h3><p>إيراد أو مصروف، ثم مدخرات وأهداف وديون وميزانية الشهر متى احتجت.</p></div>
-      <div><div class="num">٤</div><h3>تابع واتخذ قرارًا</h3><p>اقرأ التحليل والتنبيهات، أو جهّز نص MoneyFlow AI إن رغبت باستشارة خارجية.</p></div>
+      <div><div class="num">٤</div><h3>تابع واتخذ قرارًا</h3><p>اقرأ التحليل والتنبيهات، أو جهّز نص Wazen AI إن رغبت باستشارة خارجية.</p></div>
     </div>
   </section>
 
   <section class="wrap" id="download">
     <div class="dl">
       <span class="mark" style="width:56px;height:56px;border-radius:16px;margin:0 auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="28" height="28"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span>
-      <h2>حمّل MONEY-FLOW وابدأ من جهازك.</h2>
-      <p>ملف التطبيق يُنشر باسم MONEY-FLOW.apk عبر GitHub Releases. الزر أدناه يشير إلى آخر إصدار عندما يُضبط الرابط.</p>
-      <div style="margin-top:28px"><a class="btn lg" data-download href="#download">تحميل MONEY-FLOW</a></div>
+      <h2>حمّل وازن وابدأ من جهازك.</h2>
+      <p>ملف التطبيق يُنشر باسم Wazen.apk عبر GitHub Releases. الزر أدناه يشير إلى آخر إصدار عندما يُضبط الرابط.</p>
+      <div style="margin-top:28px"><a class="btn lg" data-download href="#download">تحميل وازن</a></div>
       <p class="note" id="dlHint"></p>
     </div>
   </section>
@@ -297,7 +297,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
       <div>
         <div class="kicker">سياسة الخصوصية</div>
         <h2>بياناتك تبقى حيث أدخلتها: على الجهاز.</h2>
-        <p class="lead">لا نختلق وعودًا قانونية. السياسة مكتوبة مما يظهر في التطبيق: تخزين محلي، حساب على الجهاز، وأسعار عامة اختيارية عبر الإنترنت دون إرسال معاملاتك.</p>
+        <p class="lead">لا نختلق وعودًا قانونية. السياسة مكتوبة مما يظهر في التطبيق: تخزين محلي، حساب على الجهاز، وبياناتك لا تُرسل إلى أي خادم.</p>
       </div>
       <a class="ghost-link" href="#privacy-full" id="openPrivacy">اقرأ سياسة الخصوصية</a>
     </div>
@@ -307,15 +307,15 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
 
 <div id="privacy-page">
   <div class="prose">
-    <div class="kicker">MONEY-FLOW</div>
+    <div class="kicker">وازن</div>
     <h1>سياسة الخصوصية</h1>
     <p>كُتبت هذه السياسة من سلوك التطبيق الفعلي كما يظهر في النسخة المفحوصة. النقاط غير المؤكدة مُعلَّمة بوضوح.</p>
     <h3>خلاصة واضحة</h3>
-    <p>MONEY-FLOW تطبيق لإدارة الأموال الشخصية يعمل على جهازك. المعاملات والأهداف والديون والمدخرات والميزانية تُحفظ محليًا على الجهاز، وليس على خادم تابع لنا. ميزة الأسعار والتحويل هي الاستثناء: تحتاج اتصالًا لجلب أسعار عامة، ولا تُرسل معها بياناتك المالية.</p>
+    <p>وازن تطبيق لإدارة الأموال الشخصية يعمل على جهازك. المعاملات والأهداف والديون والمدخرات والميزانية تُحفظ محليًا على الجهاز، وليس على خادم تابع لنا.</p>
     <h3>ما البيانات التي تُحفظ؟</h3>
-    <p>يحفظ التطبيق ما تُدخله: المعاملات، الأهداف، الديون، المدخرات، الميزانيات، الحد اليومي، الملف الشخصي، وحساب محلي اختياري (تجزئة كلمة المرور وPIN عبر PBKDF2 على الجهاز — وليس النص الصريح).</p>
+    <p>يحفظ التطبيق ما تُدخله: المعاملات، الأهداف، الديون، المدخرات، الميزانيات، الحد اليومي، العملة الأساسية المختارة، الملف الشخصي، وحساب محلي اختياري (تجزئة كلمة المرور وPIN عبر PBKDF2 على الجهاز — وليس النص الصريح).</p>
     <h3>أين تُخزَّن وهل تُشارك؟</h3>
-    <p>التخزين محلي. التصدير JSON لا يتضمن تجزئة كلمة المرور ولا PIN. التطبيق لا يرسل معاملاتك إلى خادم. MoneyFlow AI يجهّز نصًا على الجهاز وأنت من تنسخه. أسعار الصرف تُجلب من مصادر عامة دون إرسال بيانات مالية.</p>
+    <p>التخزين محلي. التصدير JSON لا يتضمن تجزئة كلمة المرور ولا PIN. التطبيق لا يرسل معاملاتك إلى خادم. Wazen AI يجهّز نصًا على الجهاز وأنت من تنسخه.</p>
     <p class="warn">[يجب على المطوّر تأكيد هذه النقطة] صلاحيات أندرويد في ملف APK وبيان أي إعلانات أو تحليلات مستقبلية.</p>
     <p><a href="#top" data-home class="ghost-link" style="margin-top:24px">العودة إلى الموقع</a></p>
   </div>
@@ -325,7 +325,7 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span>MONEY-FLOW</div>
+        <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span>وازن</div>
         <p>إدارة الأموال الشخصية على جهازك. يعمل دون إنترنت. بياناتك محفوظة محليًا.</p>
       </div>
       <div class="foot-links">
@@ -335,40 +335,41 @@ footer{border-top:1px solid var(--border);padding:40px 0 0;margin-top:24px}
         <a href="#privacy-full" id="footerPrivacy">سياسة الخصوصية</a>
       </div>
     </div>
-    <div class="copy"><span>© <span id="year"></span> MONEY-FLOW</span><span> شكراً لكم على الثقة )</span></div>
+    <div class="copy"><span>© <span id="year"></span> وازن</span><span>يعمل محليًا · بياناتك على جهازك</span></div>
   </div>
 </footer>
 
 <script>
-/* =========================================================
-   🔗 SITE LINKS
-   تم إصلاح الرابط وضبط سطر الجافاسكريبت المكسور:
-   ========================================================= */
-const SITE_LINKS = {
-  download: "https://github.com/karamorabi406-bit/MONEY-FLOW-/releases/latest/download/MONEY-FLOW.apk",
-  instagram: "https://www.instagram.com/money_flow__official",
+/* ============================================================
+   إعدادات الموقع — غيّر القيم هنا فقط
+   ============================================================ */
+
+// ضع هنا رابط تحميل وازن من GitHub Releases
+// الصيغة الصحيحة لملف آخر إصدار على GitHub:
+// https://github.com/USERNAME/REPO/releases/latest/download/Wazen.apk
+const DOWNLOAD_URL = "DOWNLOAD_LINK_HERE";
+
+const SOCIAL_LINKS = {
+  instagram: "INSTAGRAM_URL_HERE",
   telegram: "https://t.me/monyflowofflclal"
 };
 
 function isConfiguredUrl(url){
-  return /^https?:\/\//i.test(url || "") && !/YOUR-APP-DOWNLOAD-LINK-HERE|YOUR-INSTAGRAM-LINK-HERE|YOUR-TELEGRAM-GROUP-LINK-HERE|_HERE|USERNAME/i.test(url);
+  return /^https?:\/\//i.test(url || "") && !/_HERE|USERNAME|YOUR-USERNAME/i.test(url);
 }
 
 function wireDownloads(){
-  const ready = isConfiguredUrl(SITE_LINKS.download);
+  const ready = isConfiguredUrl(DOWNLOAD_URL);
   document.querySelectorAll("[data-download]").forEach(function(a){
-    a.href = ready ? SITE_LINKS.download : "#download";
-    if(ready){
-      a.setAttribute("target","_blank");
-      a.setAttribute("rel","noopener noreferrer");
-    }
+    a.href = ready ? DOWNLOAD_URL : "#download";
+    if(ready) a.setAttribute("rel","noopener noreferrer");
   });
   const hint = document.getElementById("dlHint");
   if(hint) hint.textContent = ready ? "" : "رابط التحميل لم يُضبط بعد. سيُفعَّل عند نشر الإصدار.";
 }
 
 function wireSocial(){
-  [["data-ig", SITE_LINKS.instagram],["data-tg", SITE_LINKS.telegram]].forEach(function(pair){
+  [["data-ig", SOCIAL_LINKS.instagram],["data-tg", SOCIAL_LINKS.telegram]].forEach(function(pair){
     document.querySelectorAll("["+pair[0]+"]").forEach(function(a){
       if(isConfiguredUrl(pair[1])){
         a.href = pair[1]; a.target = "_blank"; a.rel = "noopener noreferrer"; a.classList.remove("off");
