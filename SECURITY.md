@@ -2,7 +2,7 @@
 
 ## Reporting a Security Issue
 
-If you discover a potential security issue affecting MONEY-FLOW, please report it privately to the project maintainer rather than publicly disclosing the issue before it can be reviewed.
+If you discover a potential security issue affecting WAZEN, please report it privately to the project maintainer rather than publicly disclosing the issue before it can be reviewed.
 
 Please include:
 
