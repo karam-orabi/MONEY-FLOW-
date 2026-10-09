@@ -11,7 +11,7 @@ MONEY-FLOW هو تطبيق لإدارة الأموال الشخصية يساعد
 ## 🔗 روابط المشروع
 
 - 🌐 **الموقع الرسمي:**  
-  https://karamorabi406-bit.github.io/MONEY-FLOW-/
+https://karam-orabi.github.io/Wazen.apk/
 
 - 📱 **تحميل التطبيق:**  
   https://github.com/karamorabi406-bit/MONEY-FLOW-/releases/latest
